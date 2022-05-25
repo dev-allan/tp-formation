@@ -1,41 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Candidat index{% endblock %}
+{% block title %}Liste des candidats{% endblock %}
 
 {% block body %}
-    <h1>Candidat index</h1>
-
+<div class="p-5">
+    <h1>Liste des candidats</h1>
+    <a type="button" class="btn btn-primary" href="{{ path('app_candidat_new') }}">Créer un nouveau candidat</a>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Prenom</th>
-                <th>Email_contact</th>
-                <th>Numero_tel</th>
+                <th>Email</th>
+                <th>Numero teléphone</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for candidat in candidats %}
             <tr>
-                <td>{{ candidat.id }}</td>
                 <td>{{ candidat.nom }}</td>
                 <td>{{ candidat.prenom }}</td>
                 <td>{{ candidat.emailContact }}</td>
                 <td>{{ candidat.numeroTel }}</td>
                 <td>
-                    <a href="{{ path('app_candidat_show', {'id': candidat.id}) }}">show</a>
-                    <a href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">edit</a>
+                    <a type="button" class="btn btn-secondary" href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">Aucun candidat</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_candidat_new') }}">Create new</a>
+</div>
 {% endblock %}

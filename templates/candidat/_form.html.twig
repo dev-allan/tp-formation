@@ -1,4 +1,13 @@
+<div class="mb-3 d-flex p-2">
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Save') }}</button>
+<div class="d-flex flex-column p-5">
+    {# {{ form_widget(form) }} #}
+    Nom : {{ form_widget(form.nom) }}
+    Prenom : {{ form_widget(form.prenom) }}
+    Email : {{ form_widget(form.email_contact) }}
+    Numero de telephone : {{ form_widget(form.numero_tel) }}
+    Promotion : {{ form_widget(form.promotion_id) }}
+    <button class="btn btn-primary mt-3">{{ button_label|default('Enregistrer') }}</button>
+</div>
 {{ form_end(form) }}
+</div>

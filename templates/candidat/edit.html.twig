@@ -3,11 +3,12 @@
 {% block title %}Edit Candidat{% endblock %}
 
 {% block body %}
-    <h1>Edit Candidat</h1>
+<div class="p-5">
+    <h1>Editer le candidat</h1>
 
-    {{ include('candidat/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_candidat_index') }}">back to list</a>
-
+    {{ include('candidat/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
     {{ include('candidat/_delete_form.html.twig') }}
+
+    <a href="{{ path('app_candidat_index') }}">Retourner à la liste des candidats</a>
+</div>
 {% endblock %}
