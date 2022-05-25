@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Organisme index{% endblock %}
+{% block title %}Liste des organismes{% endblock %}
 
 {% block body %}
-    <h1>Organisme index</h1>
-
+<div class="p-5">
+    <h1>Liste des organismes</h1>
+    <a type="button" class="btn btn-primary" href="{{ path('app_organisme_new') }}">Ajouter un organisme</a>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
                 <th>Adresse</th>
                 <th>Numero_tel</th>
@@ -19,14 +19,12 @@
         <tbody>
         {% for organisme in organismes %}
             <tr>
-                <td>{{ organisme.id }}</td>
                 <td>{{ organisme.nom }}</td>
                 <td>{{ organisme.adresse }}</td>
                 <td>{{ organisme.numeroTel }}</td>
                 <td>{{ organisme.emailContact }}</td>
                 <td>
-                    <a href="{{ path('app_organisme_show', {'id': organisme.id}) }}">show</a>
-                    <a href="{{ path('app_organisme_edit', {'id': organisme.id}) }}">edit</a>
+                    <a type="button" class="btn btn-secondary" href="{{ path('app_organisme_edit', {'id': organisme.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -36,6 +34,5 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_organisme_new') }}">Create new</a>
+</div>
 {% endblock %}
