@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Session index{% endblock %}
+{% block title %}Liste des sessions{% endblock %}
 
 {% block body %}
-    <h1>Session index</h1>
-
+<div class="p-5">
+    <h1>Liste des sessions</h1>
+    <a type="button" class="btn btn-primary" href="{{ path('app_session_new') }}">Ajouter une session</a>
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Date_debut</th>
-                <th>Date_fin</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
                 <th>Nom</th>
                 <th>actions</th>
             </tr>
@@ -18,22 +18,19 @@
         <tbody>
         {% for session in sessions %}
             <tr>
-                <td>{{ session.id }}</td>
                 <td>{{ session.dateDebut ? session.dateDebut|date('Y-m-d') : '' }}</td>
                 <td>{{ session.dateFin ? session.dateFin|date('Y-m-d') : '' }}</td>
                 <td>{{ session.nom }}</td>
                 <td>
-                    <a href="{{ path('app_session_show', {'id': session.id}) }}">show</a>
-                    <a href="{{ path('app_session_edit', {'id': session.id}) }}">edit</a>
+                    <a type="button" class="btn btn-secondary" href="{{ path('app_session_edit', {'id': session.id}) }}">Editer</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucune session</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('app_session_new') }}">Create new</a>
+    </div>
 {% endblock %}

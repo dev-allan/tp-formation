@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Session{% endblock %}
+{% block title %}Editer la session{% endblock %}
 
 {% block body %}
-    <h1>Edit Session</h1>
+<div class="p-5">
+    <h1>Editer la session</h1>
 
-    {{ include('session/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_session_index') }}">back to list</a>
-
+    {{ include('session/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
     {{ include('session/_delete_form.html.twig') }}
+    <a href="{{ path('app_session_index') }}">Retourner à la liste des salles</a>
+</div>
 {% endblock %}
