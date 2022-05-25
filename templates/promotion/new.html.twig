@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Promotion{% endblock %}
+{% block title %}Nouvelle Promotion{% endblock %}
 
 {% block body %}
-    <h1>Create new Promotion</h1>
+<div class="p-5">
+    <h1>Créer une nouvelle promotion</h1>
 
     {{ include('promotion/_form.html.twig') }}
 
-    <a href="{{ path('app_promotion_index') }}">back to list</a>
+    <a href="{{ path('app_promotion_index') }}"> <- Retourner à la liste des promotions</a>
+</div>
 {% endblock %}
