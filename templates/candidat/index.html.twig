@@ -13,6 +13,7 @@
                 <th>Prenom</th>
                 <th>Email</th>
                 <th>Numero teléphone</th>
+                <th>promotions</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td>{{ candidat.prenom }}</td>
                 <td>{{ candidat.emailContact }}</td>
                 <td>{{ candidat.numeroTel }}</td>
+                <td>{{ candidat.promotionId}}</td>
                 <td>
                     <a type="button" class="btn btn-secondary" href="{{ path('app_candidat_edit', {'id': candidat.id}) }}">Modifier</a>
                 </td>
