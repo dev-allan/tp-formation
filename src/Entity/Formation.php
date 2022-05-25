@@ -18,7 +18,7 @@ class Formation
     #[ORM\Column(type: 'string', length: 255)]
     private $intitule;
 
-    #[ORM\OneToMany(mappedBy: 'formateur_id', targetEntity: Promotion::class)]
+    #[ORM\OneToMany(mappedBy: 'formation', targetEntity: Promotion::class)]
     private $inscrit;
 
     #[ORM\ManyToOne(targetEntity: Organisme::class, inversedBy: 'propose')]
@@ -58,7 +58,7 @@ class Formation
     {
         if (!$this->inscrit->contains($inscrit)) {
             $this->inscrit[] = $inscrit;
-            $inscrit->setFormateurId($this);
+            $inscrit->setFormation($this);
         }
 
         return $this;
@@ -68,8 +68,8 @@ class Formation
     {
         if ($this->inscrit->removeElement($inscrit)) {
             // set the owning side to null (unless already changed)
-            if ($inscrit->getFormateurId() === $this) {
-                $inscrit->setFormateurId(null);
+            if ($inscrit->getFormation() === $this) {
+                $inscrit->setFormation(null);
             }
         }
 

@@ -25,7 +25,10 @@ class Promotion
     private $fait_partit;
 
     #[ORM\ManyToOne(targetEntity: Formation::class, inversedBy: 'inscrit')]
-    private $formateur_id;
+    private $formation;
+
+    #[ORM\ManyToOne(targetEntity: Formateur::class, inversedBy: 'enseigne')]
+    private $formateur;
 
     public function __construct()
     {
@@ -110,14 +113,26 @@ class Promotion
         return $this;
     }
 
-    public function getFormateurId(): ?Formation
+    public function getFormation(): ?Formation
     {
-        return $this->formateur_id;
+        return $this->formation;
     }
 
-    public function setFormateurId(?Formation $formateur_id): self
+    public function setFormation(?Formation $formation): self
     {
-        $this->formateur_id = $formateur_id;
+        $this->formation = $formation;
+
+        return $this;
+    }
+
+    public function getFormateur(): ?Formateur
+    {
+        return $this->formateur;
+    }
+
+    public function setFormateur(?Formateur $formateur): self
+    {
+        $this->formateur = $formateur;
 
         return $this;
     }

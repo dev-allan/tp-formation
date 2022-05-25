@@ -1,23 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Promotion index{% endblock %}
+{% block title %}Les promotions{% endblock %}
 
 {% block body %}
-    <h1>Promotion index</h1>
+    <h1>Liste des promotions</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Nom</th>
-                <th>actions</th>
+                <th>Formation</th>
+                <th>Formateur</th>
             </tr>
         </thead>
         <tbody>
         {% for promotion in promotions %}
             <tr>
-                <td>{{ promotion.id }}</td>
                 <td>{{ promotion.nom }}</td>
+                <td>{{ promotion.formation }}</td>
+                <td>{{ promotion.formateur }}</td>
                 <td>
                     <a href="{{ path('app_promotion_show', {'id': promotion.id}) }}">show</a>
                     <a href="{{ path('app_promotion_edit', {'id': promotion.id}) }}">edit</a>

@@ -13,7 +13,8 @@ class PromotionType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('formateur_id')
+            ->add('formation')
+            ->add('formateur')
         ;
     }
 
