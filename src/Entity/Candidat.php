@@ -15,12 +15,21 @@ class Candidat
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner le nom")
+     */
     private $nom;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner le prénom")
+     */
     private $prenom;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\Email()
+     */
     private $email_contact;
 
     #[ORM\Column(type: 'string', length: 255)]
