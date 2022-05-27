@@ -6,6 +6,7 @@ use App\Repository\PromotionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: PromotionRepository::class)]
 class Promotion
@@ -16,6 +17,9 @@ class Promotion
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner le nom")
+     */
     private $nom;
 
     #[ORM\OneToMany(mappedBy: 'promotion_id', targetEntity: Session::class)]

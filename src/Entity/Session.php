@@ -6,6 +6,7 @@ use App\Repository\SessionRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: SessionRepository::class)]
 class Session
@@ -16,12 +17,21 @@ class Session
     private $id;
 
     #[ORM\Column(type: 'date')]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner une date de début")
+     */
     private $date_debut;
 
     #[ORM\Column(type: 'date')]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner une date de fin")
+     */
     private $date_fin;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner le nom")
+     */
     private $nom;
 
     #[ORM\ManyToMany(targetEntity: Salle::class, mappedBy: 'session_id')]

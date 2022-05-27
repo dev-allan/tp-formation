@@ -6,6 +6,7 @@ use App\Repository\FormateurRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: FormateurRepository::class)]
 class Formateur
@@ -16,15 +17,27 @@ class Formateur
     private $id;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner le nom")
+     */
     private $nom;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\NotBlank(message="Veuillez renseigner le prénom")
+     */
     private $prenom;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\Regex("#^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$#")
+     */
     private $numero;
 
     #[ORM\Column(type: 'string', length: 255)]
+    /**
+     * @Assert\Email()
+     */
     private $email;
 
     #[ORM\ManyToMany(targetEntity: Session::class, mappedBy: 'formateur_id')]
