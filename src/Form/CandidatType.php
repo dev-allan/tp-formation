@@ -13,9 +13,24 @@ class CandidatType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('prenom')
-            ->add('email_contact')
+            ->add('nom', null, [
+                'label' => 'Nom',
+                'attr' => [
+                    'placeholder' => 'Dupont',
+                ],
+            ])
+            ->add('prenom', null, [
+                'label' => 'Prénom',
+                'attr' => [
+                    'placeholder' => 'Jean',
+                ],
+            ])
+            ->add('email_contact', null, [
+                'label' => 'Email',
+                'attr' => [
+                    'placeholder' => 'exemple@mail.com',
+                ],
+            ])
             ->add('numero_tel', null, [
                 "attr" => [
                     "placeholder" => "Numéro de téléphone"

@@ -12,7 +12,12 @@ class PromotionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
+            ->add('nom', null, [
+                'label' => 'Nom',
+                'attr' => [
+                    'placeholder' => 'CDA2',
+                ],
+            ])
             ->add('formation')
             ->add('formateur')
         ;

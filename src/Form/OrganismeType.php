@@ -12,10 +12,30 @@ class OrganismeType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
-            ->add('adresse')
-            ->add('numero_tel')
-            ->add('email_contact')
+            ->add('nom', null, [
+                'label' => 'Nom',
+                'attr' => [
+                    'placeholder' => 'M2i',
+                ],
+            ])
+            ->add('adresse', null, [
+                'label' => 'Adresse',
+                'attr' => [
+                    'placeholder' => "4 Av. de l'Horizon, 59650 Villeneuve-d'Ascq",
+                ],
+            ])
+            ->add('numero_tel', null, [
+                "attr" => [
+                    "placeholder" => "0320190719"
+
+                ],
+            ])
+            ->add('email_contact', null, [
+                'label' => 'Email',
+                'attr' => [
+                    'placeholder' => "contact@m2i.fr"
+                ],
+            ])
         ;
     }
 
