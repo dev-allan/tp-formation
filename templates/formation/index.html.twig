@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>Intitule</th>
+                <th>organisme</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,6 +18,7 @@
         {% for formation in formations %}
             <tr>
                 <td>{{ formation.intitule }}</td>
+                <td>{{ formation.organismeid }}</td>
                 <td>
                     <a type="button" class="btn btn-secondary" href="{{ path('app_formation_edit', {'id': formation.id}) }}">Editer</a>
                 </td>

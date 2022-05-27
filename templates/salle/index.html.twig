@@ -10,6 +10,7 @@
         <thead>
             <tr>
                 <th>Nom</th>
+                <th>Session</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -17,6 +18,11 @@
         {% for salle in salles %}
             <tr>
                 <td>{{ salle.nom }}</td>
+                <td>
+                    {% for session in salle.sessionid %}
+                        {{ session.nom }}
+                    {% endfor %}
+                </td>
                 <td>
                     <a type="button" class="btn btn-secondary" href="{{ path('app_salle_edit', {'id': salle.id}) }}">Editer</a>
                 </td>

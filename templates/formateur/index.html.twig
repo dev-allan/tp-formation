@@ -13,6 +13,7 @@
                 <th>Prenom</th>
                 <th>Numero</th>
                 <th>Email</th>
+                <th>Session d'enseignement</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -23,6 +24,11 @@
                 <td>{{ formateur.prenom }}</td>
                 <td>{{ formateur.numero }}</td>
                 <td>{{ formateur.email }}</td>
+                <td>
+                    {% for section in formateur.enseigne %}
+                        {{ section.nom }}
+                    {% endfor %}
+                </td>
                 <td>
                     <a type="button" class="btn btn-secondary" href="{{ path('app_formateur_edit', {'id': formateur.id}) }}">Modifier</a>
                 </td>
