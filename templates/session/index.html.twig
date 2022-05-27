@@ -12,6 +12,8 @@
                 <th>Date de début</th>
                 <th>Date de fin</th>
                 <th>Nom</th>
+                <th>Formateurs</th>
+                <th>Promotion</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,6 +23,12 @@
                 <td>{{ session.dateDebut ? session.dateDebut|date('Y-m-d') : '' }}</td>
                 <td>{{ session.dateFin ? session.dateFin|date('Y-m-d') : '' }}</td>
                 <td>{{ session.nom }}</td>
+                <td>
+                    {% for formateur in session.formateurid %}
+                        {{ formateur.nom }}
+                    {% endfor %}
+                </td>
+                <td>{{ session.promotionId }}</td>
                 <td>
                     <a type="button" class="btn btn-secondary" href="{{ path('app_session_edit', {'id': session.id}) }}">Editer</a>
                 </td>
